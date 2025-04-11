@@ -62,7 +62,6 @@ header h2:hover {
     display: grid;
     grid-template-columns: repeat(2, 300px);
     grid-template-rows: repeat(2, 300px);
-    gap: 1rem;
     padding: 1rem;
     justify-content: center;
 }
@@ -81,12 +80,16 @@ header h2:hover {
     position: relative;
     width: 100%;
     height: 100%;
+    perspective: 1000px;  
 }
 
 .description-container {
     background: cornsilk;
     border: 1px solid dodgerblue;
     padding: 1rem;
+    position: absolute; 
+    z-index: -1; 
+    
 }
 
 .description-text {
@@ -119,8 +122,7 @@ header h2:hover {
 .overlay-card .subtitle {
     color: dodgerblue;
     position: absolute;
-    top: 60px; /* Positions it below the title with spacing */
-    left: 20px;
+    top: 60px; 
     margin: 0;
 }
 
@@ -133,5 +135,37 @@ header h2:hover {
     position: absolute;
     top: 50%;
     right: 20px;
-    transform: translateY(-50%);
+}
+
+.door .overlay-card {
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);    
+    transition: transform 0.5s ease-in-out;   
+}
+
+.door:hover .overlay-card {
+    transform: rotateY(58deg); 
+}
+
+.door .description-container {
+    width: 40%;
+    right: 1rem;
+    height: 50%;
+    padding: 0.50rem;
+    letter-spacing: 0;
+    bottom: 1.8rem;
+}
+
+.door .description-container .description-text {
+    font-size: 0.875rem;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.door .description-container .bullet-item:hover {
+    font-weight: bold;
+    cursor: pointer;
 }
