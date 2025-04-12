@@ -1,5 +1,6 @@
 html {
     font-size: 16px;
+     overflow-y: scroll;
 }
 
 * {
@@ -12,6 +13,7 @@ html {
 body {
     font-family: sans-serif;
     background: dodgerblue;
+    overflow: scroll;
 }
 
 header {
@@ -50,13 +52,6 @@ header h2:hover {
     border-bottom: 2px solid transparent;
 }
 
-.article-containers::before {
-    border-bottom: 1px solid dodgerblue;
-    bottom: 0;
-    content: "";
-    position: absolute;
-    width: 100%;
-}
 
 .articles-container {
     display: grid;
@@ -66,15 +61,18 @@ header h2:hover {
     justify-content: center;
 }
 
-.cabinet {
+.slide {
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
 }
 
-.cabinet:hover .overlay-card {
+.slide:hover .overlay-card {
     transform: translateY(+80%);
 }
 
+.slide.right:hover .overlay-card {
+    transform: translateX(+100%);
+}
 
 .article-container {
     position: relative;
@@ -89,7 +87,7 @@ header h2:hover {
     padding: 1rem;
     position: absolute; 
     z-index: -1; 
-    
+    height: 100%;
 }
 
 .description-text {
@@ -144,7 +142,7 @@ header h2:hover {
 }
 
 .door:hover .overlay-card {
-    transform: rotateY(58deg); 
+    transform: rotateY(57deg); 
 }
 
 .door .description-container {
@@ -167,4 +165,65 @@ header h2:hover {
 .door .description-container .bullet-item:hover {
     font-weight: bold;
     cursor: pointer;
+}
+
+.lift .description-container {
+    width: 100%;
+    height: 46%;
+    bottom: 0;
+    
+}
+
+.lift.up .description-container .bullet-item {
+    font-weight: bold;
+}
+
+.lift .overlay-card {
+    transform-origin: top center;
+    transform-style: preserve-3d;   
+    transition: transform 0.5s ease-in-out;   
+}
+
+.lift:hover .overlay-card {
+    transform: rotateX(58deg);
+}
+
+.lift .description-container .description-text {
+    font-size: 0.875rem;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.6;    
+}
+
+
+footer {
+    background-image: linear-gradient(cornsilk 1px, transparent 1px), linear-gradient(to right, cornsilk 1px, transparent 1px);
+    background-size: 16px 52px; /* Example: Adjust these values */
+    bottom: 0;
+    background-position: -1px -1px;
+    flex-direction: column;
+    height: 230px;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    position: fixed;
+    width: 100%;
+    padding-top: 10rem;
+}
+
+footer > p {
+    background: cornsilk;
+    color: dodgerblue;
+    padding: 1.25rem 2.5rem 1.25rem 1.25rem;
+    position: relative;
+    
+}
+
+.description-text a {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+.description-text a:hover {
+    color: dodgerblue;
 }
