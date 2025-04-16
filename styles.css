@@ -101,6 +101,14 @@ header h2:hover {
     transform: translateX(+100%);
 }
 
+
+.slide.right .description-container .bullet-item {
+    font-weight: bold;
+    line-height: 1.6;  
+    font-size: 0.875rem;
+}
+
+
 .article-container {
     position: relative;
     width: 100%;
@@ -121,6 +129,8 @@ header h2:hover {
     color: dodgerblue;
     line-height: 1.5;
     margin-bottom: 1rem;
+    word-wrap: break-word; /* For older browsers */
+    overflow-wrap: break-word; /* For newer browsers */
 }
 
 .overlay-card {
